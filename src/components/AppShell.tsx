@@ -12,10 +12,9 @@ interface AppShellProps {
 const NAV_ITEMS = [
   { href: '/dashboard', icon: '🏠', label: 'Dashboard' },
   { href: '/dashboard/dates', icon: '📅', label: 'Dates' },
+  { href: '/dashboard/schedule', icon: '⏱️', label: 'Schedule' },
   { href: '/dashboard/route', icon: '🗺️', label: 'Route' },
-  { href: '/dashboard/crew', icon: '👥', label: 'Crew' },
-  { href: '/dashboard/documents', icon: '📄', label: 'Docs' },
-  { href: '/dashboard/settlement', icon: '💰', label: 'Settle' },
+  { href: '/dashboard/more', icon: '⋯', label: 'More' },
 ]
 
 export default function AppShell({ children, user, onLogout }: AppShellProps) {

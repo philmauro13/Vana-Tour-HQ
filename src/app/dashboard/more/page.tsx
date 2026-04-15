@@ -20,30 +20,20 @@ interface Invitation {
   created_at: string
 }
 
-function BottomNav({ active }: { active: string }) {
-  return (
-    <nav style={{ position: 'fixed', bottom: 0, left: 0, right: 0, background: '#101018', borderTop: '1px solid #1f1f2e', display: 'flex', justifyContent: 'space-around', padding: '0.75rem 1rem', maxWidth: 480, margin: '0 auto', zIndex: 100 }}>
-      {[
-        { key: 'dashboard', label: 'Dashboard', href: '/dashboard' },
-        { key: 'dates', label: 'Dates', href: '/dashboard/dates' },
-        { key: 'schedule', label: 'Schedule', href: '/dashboard/edit-day' },
-        { key: 'more', label: 'More', href: '/dashboard/more' },
-      ].map(item => (
-        <a key={item.key} href={item.href} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, fontSize: '1.3rem', opacity: active === item.key ? 1 : 0.4, textDecoration: 'none', color: 'inherit' }}>
-          <span style={{ fontSize: '1.1rem' }}>{item.key === 'dashboard' ? '🏠' : item.key === 'dates' ? '#' : item.key === 'schedule' ? '📋' : '•••'}</span>
-          <span style={{ fontSize: '0.6rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.05em', color: active === item.key ? '#d90429' : 'inherit' }}>{item.label}</span>
-        </a>
-      ))}
-    </nav>
-  )
-}
-
 const LINKS = [
-  { label: 'Advance Tracker', href: '/dashboard/advance', icon: '📋' },
+  // Tour Operations
   { label: 'Settlement Calculator', href: '/dashboard/settlement', icon: '💰' },
+  { label: 'Advance Tracker', href: '/dashboard/advance', icon: '📋' },
+  { label: 'Advance Emails', href: '/dashboard/advance-email', icon: '📧' },
+  { label: 'Daily Briefing', href: '/dashboard/briefing', icon: '📋' },
+  { label: 'Tour Budget', href: '/dashboard/budget', icon: '💰' },
+  { label: 'Expense Tracker', href: '/dashboard/expenses', icon: '🧾' },
+  { label: 'Merch Tracker', href: '/dashboard/merch', icon: '👕' },
   { label: 'Market History', href: '/dashboard/market-history', icon: '📈' },
+  // Team
   { label: 'Crew Board', href: '/dashboard/crew', icon: '👥' },
-  { label: 'Guest List', href: '/dashboard/guest-list', icon: '🎫' },
+  // Documents
+  { label: 'Document Vault', href: '/dashboard/documents', icon: '📄' },
 ]
 
 export default function MorePage() {
@@ -273,7 +263,6 @@ export default function MorePage() {
         </div>
       )}
 
-      <BottomNav active="more" />
     </div>
   )
 }

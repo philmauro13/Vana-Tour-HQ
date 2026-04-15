@@ -20,24 +20,6 @@ interface DaySheet {
   entries: DaySheetEntry[]
 }
 
-function BottomNav({ active }: { active: string }) {
-  return (
-    <nav style={{ position: 'fixed', bottom: 0, left: 0, right: 0, background: '#101018', borderTop: '1px solid #1f1f2e', display: 'flex', justifyContent: 'space-around', padding: '0.75rem 1rem', maxWidth: 480, margin: '0 auto', zIndex: 100 }}>
-      {[
-        { key: 'dashboard', label: 'Dashboard', href: '/dashboard' },
-        { key: 'dates', label: 'Dates', href: '/dashboard/dates' },
-        { key: 'schedule', label: 'Schedule', href: '/dashboard/schedule' },
-        { key: 'more', label: 'More', href: '/dashboard/more' },
-      ].map(item => (
-        <a key={item.key} href={item.href} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, fontSize: '1.3rem', opacity: active === item.key ? 1 : 0.4, textDecoration: 'none', color: 'inherit' }}>
-          <span style={{ fontSize: '1.1rem' }}>{item.key === 'dashboard' ? '[=]' : item.key === 'dates' ? '[#]' : item.key === 'schedule' ? '[T]' : '[...]'}</span>
-          <span style={{ fontSize: '0.6rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.05em', color: active === item.key ? '#d90429' : 'inherit' }}>{item.label}</span>
-        </a>
-      ))}
-    </nav>
-  )
-}
-
 const FALLBACK_ENTRIES: DaySheetEntry[] = [
   { time: '12:00 PM', label: 'Load In', icon: '[truck]', type: 'logistics' },
   { time: '04:00 PM', label: 'Sound Check', icon: '[knob]', type: 'support' },
@@ -133,7 +115,6 @@ export default function SchedulePage() {
         <a href="/dashboard/edit-day" style={{ display: 'block', padding: '12px 20px', background: 'transparent', color: '#f0f0f5', border: '1px solid #1f1f2e', borderRadius: 10, fontWeight: 600, textAlign: 'center', textDecoration: 'none' }}>Edit Day Sheet</a>
       </div>
 
-      <BottomNav active="schedule" />
     </div>
   )
 }
