@@ -498,7 +498,7 @@ export default function ExpensesPage() {
                       {CATEGORY_EMOJI[expense.category]}
                     </div>
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ fontSize: '0.85rem', fontWeight: 500, marginBottom: '0.15rem }}>{expense.description}</div>
+                      <div style={{ fontSize: '0.85rem', fontWeight: 500, marginBottom: '0.15rem' }}>{expense.description}</div>
                       <div style={{ fontSize: '0.7rem', color: '#8888a0' }}>{formatDateShort(expense.date)}</div>
                     </div>
                     <div style={{
