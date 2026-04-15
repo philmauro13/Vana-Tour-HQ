@@ -217,7 +217,7 @@ c/o ${artistName}
 
   function handleOpenEmail(to: string, subject: string, body: string, date: string) {
     window.open(`mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank')
-    const updated = { ...emailStatuses, [date]: 'sent' }
+    const updated: Record<string, EmailStatus> = { ...emailStatuses, [date]: 'sent' }
     setEmailStatuses(updated)
     localStorage.setItem('tourhq_email_statuses', JSON.stringify(updated))
     setOpenDate(null)
@@ -230,14 +230,14 @@ c/o ${artistName}
   }
 
   function handleMarkSent(date: string) {
-    const updated = { ...emailStatuses, [date]: 'sent' }
+    const updated: Record<string, EmailStatus> = { ...emailStatuses, [date]: 'sent' }
     setEmailStatuses(updated)
     localStorage.setItem('tourhq_email_statuses', JSON.stringify(updated))
     setOpenDate(null)
   }
 
   function handleMarkComplete(date: string) {
-    const updated = { ...emailStatuses, [date]: 'complete' }
+    const updated: Record<string, EmailStatus> = { ...emailStatuses, [date]: 'complete' }
     setEmailStatuses(updated)
     localStorage.setItem('tourhq_email_statuses', JSON.stringify(updated))
     setOpenDate(null)
