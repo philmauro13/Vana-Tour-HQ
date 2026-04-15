@@ -99,6 +99,7 @@ export default function BriefingPage() {
 
   useEffect(() => {
     if (!tour) return
+    const tourId = tour.id
     async function loadData() {
       setLoading(true)
 
@@ -106,12 +107,12 @@ export default function BriefingPage() {
         supabase
           .from('tour_dates')
           .select('date, city, venue, type, distance, drive_time, from_city, to_city, stopover')
-          .eq('tour_id', tour.id)
+          .eq('tour_id', tourId)
           .order('date', { ascending: true }),
         supabase
           .from('day_sheets')
           .select('id, tour_id, day_date, city, venue_name, is_show, promoter, hotel, entries')
-          .eq('tour_id', tour.id),
+          .eq('tour_id', tourId),
       ])
 
       if (!datesRes.error && datesRes.data) {
